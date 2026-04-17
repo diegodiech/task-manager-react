@@ -1,0 +1,27 @@
+/* index.css - Estilos Globales */
+:root {
+  --bg-color: #e3f2fd; /* Azul soft para el fondo de la página */
+  --card-bg: #ffffff;
+  --primary-blue: #1a237e;
+  --accent-blue: #2196f3;
+  --text-main: #333333;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Centrado vertical */
+  color: var(--text-main);
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}

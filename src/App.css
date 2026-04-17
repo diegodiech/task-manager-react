@@ -1,0 +1,16 @@
+/* App.css - El contenedor tipo tarjeta */
+.card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px; /* Bordes bien redondeados y modernos */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidad */
+  width: 100%;
+  max-width: 450px; /* Tamaño ideal para Task Manager */
+  transition: transform 0.3s ease;
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,31 @@
+.empty-state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  background: #fbfcfe;
+  border: 2px dashed #e0e6ed;
+  border-radius: 16px;
+  margin: 20px 0;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.empty-title {
+  color: #1a237e;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.empty-subtitle {
+  color: #78909c;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  max-width: 250px;
+  line-height: 1.4;
+}

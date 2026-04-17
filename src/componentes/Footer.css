@@ -1,0 +1,56 @@
+.task-footer {
+  margin-top: 25px;
+}
+
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #eee, transparent);
+  margin-bottom: 15px;
+}
+
+/* Contenedor para las nuevas estadísticas */
+.footer-stats-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  justify-content: flex-start; /* O center, según prefieras */
+}
+
+.stat-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #fcfcfc;
+  border: 1px solid #f0f0f0;
+  color: #78909c;
+}
+
+/* Colores sutiles para los números */
+.stat-tag .count-pending {
+  color: #f44336; /* Rojo para pendientes */
+  margin-left: 4px;
+}
+
+.stat-tag .count-completed {
+  color: #4caf50; /* Verde para completadas */
+  margin-left: 4px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #78909c;
+  font-size: 0.85rem;
+}
+
+.task-count strong {
+  color: #2196f3;
+  font-weight: 700;
+}
+
+.footer-date {
+  font-weight: 500;
+  opacity: 0.8;
+}

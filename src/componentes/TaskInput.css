@@ -1,0 +1,84 @@
+/* Contenedor para que el mensaje de error no empuje todo hacia abajo de golpe */
+.task-input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px; /* Moví el margen del form aquí */
+}
+
+.task-form {
+  display: flex;
+  gap: 12px;
+  /* Eliminamos el margin-bottom de aquí para controlarlo desde el contenedor */
+}
+
+.task-input {
+  flex: 1;
+  padding: 14px 18px;
+  border: 2px solid #f0f0f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* --- NUEVA CLASE PARA EL ERROR --- */
+.input-error .task-input {
+  border-color: #ff5252;
+  background-color: #fffafa;
+}
+
+.task-input:focus {
+  border-color: #2196f3;
+  box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.1);
+}
+
+/* Si hay error y el usuario hace focus, que se vea el azul de "escribiendo" */
+.input-error .task-input:focus {
+  border-color: #2196f3;
+}
+
+.task-submit-btn {
+  background: #2196f3;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-submit-btn:hover {
+  background: #1976d2;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+}
+
+/* --- ESTILO DEL MENSAJE DE ERROR --- */
+.error-message {
+  color: #ff5252;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  margin-bottom: -12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

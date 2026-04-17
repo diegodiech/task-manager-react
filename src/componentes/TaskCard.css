@@ -1,0 +1,87 @@
+.task-card-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: #fdfdfd;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.task-card-item:hover {
+  transform: translateX(5px);
+  border-color: #d1e9ff;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  cursor: pointer;
+}
+
+/* El Checkbox Personalizado */
+.checkbox-custom {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #2196f3;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.check-icon {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.task-text {
+  font-size: 1rem;
+  color: #444;
+  transition: all 0.3s ease;
+}
+
+/* ESTADO COMPLETADO (Guao!) */
+.is-completed {
+  background: #f8f9fa;
+  border-color: #eee;
+  opacity: 0.7;
+}
+
+.is-completed .checkbox-custom {
+  background: #2196f3;
+  border-color: #2196f3;
+}
+
+.is-completed .task-text {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* Botón Eliminar Estilizado */
+.delete-action-btn {
+  background: transparent;
+  border: none;
+  color: #ff5252;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0; /* Solo se ve al hacer hover */
+  transition: all 0.2s ease;
+}
+
+.task-card-item:hover .delete-action-btn {
+  opacity: 1;
+}
+
+.delete-action-btn:hover {
+  background: #fff1f1;
+  color: #d32f2f;
+}
