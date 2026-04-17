@@ -17,7 +17,7 @@ function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
   
   const fetchTasks = () => {
-    fetch("http://localhost:3000/tasks")
+    fetch(`${import.meta.env.VITE_API_URL}/tasks`)
       .then((response) => response.json())
       .then((data) => {
         setTasks(data);
@@ -33,7 +33,7 @@ function App() {
 
   // Funcionalidad: Agregar tarea
   const addTask = (text: string) => {
-    fetch("http://localhost:3000/tasks", {
+    fetch(`${import.meta.env.VITE_API_URL}/tasks`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text }),
@@ -48,7 +48,7 @@ function App() {
 
   // Funcionalidad: Eliminar tarea
   const deleteTask = (id: number) => {
-    fetch(`http://localhost:3000/tasks/${id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/tasks/${id}`, {
       method: "DELETE",
     })
     .then(() => {
@@ -64,7 +64,7 @@ function App() {
     const taskToToggle = tasks.find(t => t.id === id);
     if (!taskToToggle) return;
 
-    fetch(`http://localhost:3000/tasks/${id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/tasks/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       // ENVIAMOS el estado opuesto al que tiene actualmente
