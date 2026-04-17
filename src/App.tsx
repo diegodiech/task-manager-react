@@ -23,7 +23,7 @@ function App() {
         setTasks(data);
       })
       .catch((error) => {
-        console.error("Error al oabtener tareas:", error);
+        console.error("Error al obtener tareas:", error);
       });
   };
 
