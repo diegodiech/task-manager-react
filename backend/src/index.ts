@@ -8,6 +8,10 @@ const cors = require("cors");
 const { PrismaClient } = require("@prisma/client");
 const { PrismaPg } = require("@prisma/adapter-pg");
 
+// agregamos jwt
+const jwt = require('jsonwebtoken');
+const SECRET_KEY = "tareitas3000"
+
 const adapter = new PrismaPg({
     connectionString: process.env.DATABASE_URL,
 });
@@ -92,6 +96,57 @@ app.put("/tasks/:id", async (req: any, res: any) => {
         console.error("Eror en PUT /tasks:id", error);
         res.status(500).json({ message: "Error al actualizar tarea"});
     }
+});
+
+
+// JWT, acá entran todos los cambios agregados al backend para el uso de la validacion
+// 5. RUTA LOGIN
+app.post("/login", (req: any, res: any) => {
+    const { username, password } = req.body;
+    if (username === "diego" && password === "1234") {
+        // 6. GENERAR TOKEN
+        const token = jwt.sign(
+            { username: username }, 
+            SECRET_KEY, 
+            { expiresIn: "1h" }
+        );
+        res.json({ token });
+    } else {
+        res.status(401).json({ message: "Usuario o contraseña incorrectos" });
+    }
+});
+
+// 7. MIDDLEWARE DE VERIFICACIÓN
+const verifyToken = (req: any, res: any, next: any) => {
+    // Leemos el encabezado 'authorization'
+    const bearerHeader = req.headers['authorization'];
+
+    if (typeof bearerHeader !== 'undefined') {
+        // El formato suele ser "Bearer <token>", así que lo separamos
+        const token = bearerHeader.split(' ')[1];
+
+        // Verificamos el token con nuestra SECRET_KEY
+        jwt.verify(token, SECRET_KEY, (err: any, authData: any) => {
+            if (err) {
+                res.status(403).json({ message: "Token no válido o expirado" });
+            } else {
+                // Si todo está bien, guardamos los datos y continuamos
+                req.user = authData;
+                next();
+            }
+        });
+    } else {
+        // Si no hay token en el header
+        res.status(403).json({ message: "Acceso denegado: se requiere token" });
+    }
+};
+
+// 8. RUTA PROTEGIDA
+app.get("/private", verifyToken, (req: any, res: any) => {
+    res.json({
+        message: "Acceso permitido",
+        userData: req.user // Aquí verás el username que guardaste en el token
+    });
 });
 
 app.listen(PORT, () => {

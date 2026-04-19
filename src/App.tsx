@@ -4,7 +4,9 @@ import TaskList from "./componentes/TaskList";
 import TaskInput from "./componentes/TaskInput";
 import Footer from "./componentes/Footer";
 import EmptyState from "./componentes/EmptyState";
+import Login from "./componentes/Login";
 import "./App.css";
+
 
 // Definimos la estructura de la tarea (Requisito TypeScript)
 export interface Task {
@@ -15,6 +17,9 @@ export interface Task {
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
+
+  // JWT Nuevo estado para el token
+  const [token, setToken] = useState<string | null>(localStorage.getItem("token"));
   
   const fetchTasks = () => {
     fetch("http://localhost:3000/tasks")
@@ -23,13 +28,27 @@ function App() {
         setTasks(data);
       })
       .catch((error) => {
-        console.error("Error al oabtener tareas:", error);
+        console.error("Error al obtener tareas:", error);
       });
   };
 
+  //JWT cambio para el token
   useEffect(() => {
-    fetchTasks();
-  }, []);
+    if (token) {
+      fetchTasks();
+    }
+  }, [token]);
+
+  // JWT Logins token
+  const handleLoginSuccess = (newToken: string) => {
+    localStorage.setItem("token", newToken);
+    setToken(newToken);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setToken(null);
+  };  
 
   // Funcionalidad: Agregar tarea
   const addTask = (text: string) => {
@@ -78,8 +97,14 @@ function App() {
   const completed = tasks.filter(t => t.completed).length; // Cuenta cuántas tareas tienen completed: true
   const pending = total - completed;
 
+  // JWT aplication page
+  if (!token) {
+    return <Login onLoginSuccess={handleLoginSuccess} />;
+  }
+
   return (
-    <div className="main-container">
+    <div className="main-container" >
+      <button onClick={handleLogout} className="logout-btn">Cerrar Sesión</button>
       <main className="card">
         <Header />
         
