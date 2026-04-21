@@ -14,3 +14,6 @@ A robust task management application built with a modern web stack. This project
 - **Prisma ORM**: Modern database toolkit for type-safe database access.
 - **PostgreSQL**: Reliable relational database (configured on port 5433).
 
+- ## Usuario: diego
+- ## Contraseña: 1234
+
