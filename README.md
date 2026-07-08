@@ -2,6 +2,37 @@
 
 A robust task management application built with a modern web stack. This project implements a complete CRUD (Create, Read, Update, Delete) system, featuring a responsive React frontend and a persistent PostgreSQL database managed via Prisma ORM.
 
+
+## 🚀 Instalación local
+ 
+```bash
+git clone https://github.com/diegodiech/task-manager-react
+cd task-manager-react
+npm install
+```
+ 
+### Variables de entorno
+Crea un archivo `.env` en la raíz con las siguientes claves (sin valores reales en este documento):
+ 
+```
+DATABASE_URL= 
+JWT_SECRET=
+PORT=
+```
+ 
+## 📜 Comandos disponibles
+ 
+| Comando          | Descripción                              |
+|------------------|-------------------------------------------|
+| `npm run dev`    | Levanta el entorno de desarrollo           |
+| `npm run build`  | Genera el build de producción              |
+| `npm test`       | Corre las pruebas automatizadas (pendiente — Sesión 3) |
+ 
+## 🗄️ Base de datos
+ 
+PostgreSQL con migraciones y seeds gestionados con Prisma (ver Módulo 2).
+
+
 ## 🚀 Technologies
 
 ### Frontend
@@ -14,6 +45,5 @@ A robust task management application built with a modern web stack. This project
 - **Prisma ORM**: Modern database toolkit for type-safe database access.
 - **PostgreSQL**: Reliable relational database (configured on port 5433).
 
-- ## Usuario: diego
-- ## Contraseña: 1234
-
+- ## Usuario: user
+- ## Contraseña: 9876
