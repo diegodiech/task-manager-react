@@ -48,3 +48,7 @@ PostgreSQL con migraciones y seeds gestionados con Prisma (ver Módulo 2).
 
 - ## Usuario: user
 - ## Contraseña: 9876s
+
+## Cambios de complemento
+
+El proyecto está desarrollado para ejecutarlo en linea. Se probo con render y vercel
