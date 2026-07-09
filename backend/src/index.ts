@@ -84,7 +84,7 @@ app.delete("/tasks/:id", async (req: any, res: any) =>{
 
 app.put("/tasks/:id", async (req: any, res: any) => { 
     try {
-        const taskId = Number(req.params.id);
+        const taskId = String(req.params.id);
 
         const updatedTask = await prisma.task.update({
             where: { id: taskId },
