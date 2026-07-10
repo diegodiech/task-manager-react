@@ -1,3 +1,5 @@
+const variableFalsa = "hola"
+
 require("dotenv").config();
 
 import express = require("express");
