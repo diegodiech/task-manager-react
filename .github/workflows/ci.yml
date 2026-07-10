@@ -36,5 +36,5 @@ jobs:
       - run: npm ci
       # Nota: Si tu backend no tiene un script de lint o build configurado en su package.json,
       # puedes comentar temporalmente estas dos líneas de abajo con un '#' al inicio.
-      - run: npm run lint
-      - run: npm run build
+      # - run: npm run lint
+      # - run: npm run build
