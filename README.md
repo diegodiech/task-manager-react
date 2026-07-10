@@ -2,7 +2,7 @@
 
 A robust task management application built with a modern web stack. This project implements a complete CRUD (Create, Read, Update, Delete) system, featuring a responsive React frontend and a persistent PostgreSQL database managed via Prisma ORM.
 
-<!-- BADGE_CI -->
+[![CI](https://github.com/diegodiech/task-manager-react/actions/workflows/ci.yml/badge.svg)](https://github.com/diegodiech/task-manager-react/actions/workflows/ci.yml)
 
 ## 🚀 Instalación local
  
