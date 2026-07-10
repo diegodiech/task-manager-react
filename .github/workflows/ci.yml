@@ -1,14 +1,14 @@
 name: CI
- 
+
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
- 
+
 jobs:
-  build:
-    name: Lint & Build
+  frontend:
+    name: Frontend (Raíz) - Lint & Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,5 +17,24 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+
+  backend:
+    name: Backend - Lint & Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+      - run: npm ci
+      # Nota: Si tu backend no tiene un script de lint o build configurado en su package.json,
+      # puedes comentar temporalmente estas dos líneas de abajo con un '#' al inicio.
       - run: npm run lint
       - run: npm run build
