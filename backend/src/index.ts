@@ -1,7 +1,3 @@
-// En la primera línea de backend/src/index.ts:
-const variableInutilizadaQueDebeFallar = "error_simulado";
-// comentario
-
 require("dotenv").config();
 
 import express = require("express");
