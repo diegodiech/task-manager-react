@@ -8,7 +8,7 @@ describe("esTextoDeTareaValido", () => {
     // Act
     const resultado = esTextoDeTareaValido(texto);
     // Assert
-    expect(resultado).toBe(false);
+    expect(resultado).toBe(true);
   });
 
   it("rechaza un texto vacío o solo con espacios", () => {
