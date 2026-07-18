@@ -4,13 +4,14 @@ import TaskInput from "../components/TaskInput";
 import Footer from "../components/Footer";
 import EmptyState from "../components/EmptyState";
 import { useTasks } from "../hooks/useTasks";
+import { contarPendientes } from "../utils/validaciones";
 
 const TasksPage = () => {
   const { tasks, addTask, removeTask, toggleTask } = useTasks();
 
   const total = tasks.length;
-  const completed = tasks.filter((t) => t.completed).length;
-  const pending = total - completed;
+  const pending = contarPendientes(tasks);
+  const completed = total - pending;
 
   return (
     <div className="main-container">
