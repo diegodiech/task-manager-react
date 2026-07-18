@@ -1,4 +1,4 @@
-import { Task } from "../App";
+import { Task } from "../services/taskService";
 import "./TaskCard.css";
 
 interface Props {
