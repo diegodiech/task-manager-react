@@ -5,34 +5,52 @@ A robust task management application built with a modern web stack. This project
 <!-- BADGE_CI -->
 
 ## 🚀 Instalación local
- 
+
+El proyecto es un monorepo con `/frontend` (React + Vite + TS) y `/backend` (Node + Express + Prisma). Cada carpeta tiene sus propias dependencias.
+
 ```bash
 git clone https://github.com/diegodiech/task-manager-react
 cd task-manager-react
+
+cd backend
+npm install
+
+cd ../frontend
 npm install
 ```
- 
-### Variables de entorno
-Crea un archivo `.env` en la raíz con las siguientes claves (sin valores reales en este documento):
- 
-```
-DATABASE_URL= databasexample.com
-JWT_SECRET= "nostracosa"
-PORT= 8888
-```
- 
-## 📜 Comandos disponibles
- 
-| Comando          | Descripción                              |
-|------------------|-------------------------------------------|
-| `npm run dev`    | Levanta el entorno de desarrollo           |
-| `npm run build`  | Genera el build de producción              |
-| `npm test`       | Corre las pruebas automatizadas (pendiente — Sesión 3) |
- 
-## 🗄️ Base de datos
- 
-PostgreSQL con migraciones y seeds gestionados con Prisma (ver Módulo 2).
 
+También podés levantar todo (Postgres + backend + frontend) con Docker:
+
+```bash
+docker compose up --build
+```
+
+### Variables de entorno
+
+Cada carpeta tiene su propio `.env` (ver `backend/.env.example` y `frontend/.env.example`):
+
+```
+# backend/.env
+DATABASE_URL=
+PORT=
+```
+
+```
+# frontend/.env
+VITE_API_URL=
+```
+
+## 📜 Comandos disponibles
+
+| Comando          | Carpeta     | Descripción                                             |
+|-------------------|-------------|----------------------------------------------------------|
+| `npm run dev`     | frontend/backend | Levanta el entorno de desarrollo                    |
+| `npm run build`   | frontend/backend | Genera el build de producción                       |
+| `npm test`        | frontend    | Corre las pruebas automatizadas (pendiente — Sesión 3)    |
+
+## 🗄️ Base de datos
+
+PostgreSQL con migraciones gestionadas con Prisma (`backend/prisma`).
 
 ## 🚀 Technologies
 
@@ -44,7 +62,7 @@ PostgreSQL con migraciones y seeds gestionados con Prisma (ver Módulo 2).
 ### Backend
 - **Node.js & Express**: Scalable API server.
 - **Prisma ORM**: Modern database toolkit for type-safe database access.
-- **PostgreSQL**: Reliable relational database (configured on port 5433).
+- **PostgreSQL**: Reliable relational database.
 
-- ## Usuario: user
-- ## Contraseña: 9876s
+### Infraestructura
+- **Docker / docker-compose**: `postgres`, `backend` y `frontend` orquestados para desarrollo local.
