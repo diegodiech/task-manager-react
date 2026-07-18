@@ -16,6 +16,7 @@
     "@prisma/adapter-pg": "^7.7.0",
     "@prisma/client": "^7.7.0",
     "cors": "^2.8.6",
+    "dotenv": "16.0.3",
     "express": "^5.2.1",
     "pg": "^8.20.0",
     "prisma": "^7.7.0"
@@ -28,5 +29,8 @@
     "ts-node-dev": "^2.0.0",
     "typescript": "^6.0.2",
     "vitest": "^4.1.10"
+  },
+  "overrides": {
+    "dotenv": "16.0.3"
   }
 }
