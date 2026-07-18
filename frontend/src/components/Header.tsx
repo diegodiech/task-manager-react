@@ -7,6 +7,6 @@ const Header = () => {
       {/*<div className="header-badge">Diego - 2026</div>*/}
     </header>
   );
-
+};
 
 export default Header;
