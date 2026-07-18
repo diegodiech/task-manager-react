@@ -66,3 +66,4 @@ PostgreSQL con migraciones gestionadas con Prisma (`backend/prisma`).
 
 ### Infraestructura
 - **Docker / docker-compose**: `postgres`, `backend` y `frontend` orquestados para desarrollo local.
+# prueba de protección
