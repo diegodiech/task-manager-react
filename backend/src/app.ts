@@ -39,6 +39,11 @@ app.get("/tasks", async (req: any, res: any) => {
     }
 });
 
+// backend/src/index.js (o donde definas tus rutas)
+app.get("/health", (req: any, res: any) => {
+    res.status(200).json({ status: "ok" });
+});
+
 // Crear una nueva tarea
 
 app.post("/tasks", async (req: any, res: any) =>{
