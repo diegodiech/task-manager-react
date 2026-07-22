@@ -112,3 +112,17 @@ jobs:
         env:
           DATABASE_URL_REAL: ${{ secrets.DATABASE_URL }}
         run: echo "DATABASE_URL_REAL configurado -> GitHub enmascara su valor automaticamente en los logs"
+
+  deploy-staging:
+    name: Deploy a Staging
+    needs: [frontend, backend, pruebas, e2e, migraciones]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar Railway CLI
+        run: npm install -g @railway/cli
+      - name: Desplegar a Railway (staging)
+        run: railway up --service backend --environment staging
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
