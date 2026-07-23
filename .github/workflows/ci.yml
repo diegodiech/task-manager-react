@@ -111,6 +111,7 @@ jobs:
           cache-dependency-path: backend/package-lock.json
       - run: npm ci
       - run: npx prisma generate
+      - run: npx vitest run
       - run: npx prisma migrate deploy
       - run: npx prisma db seed
       - name: Confirmar que el secret de la base real esta disponible sin exponerlo
